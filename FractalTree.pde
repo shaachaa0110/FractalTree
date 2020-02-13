@@ -1,6 +1,9 @@
-private double fractionLength = .8; 
-private int smallestBranch = 10; 
-private double branchAngle = .5;  
+private double fractionLength1 = .8; 
+private int smallestBranch1 = 10; 
+private double branchAngle1 = .5;
+private double fractionLength2 = .8; 
+private int smallestBranch2 = 10; 
+private double branchAngle2 = .5;   
 public void setup() 
 {   
 	size(800,800);    
@@ -11,16 +14,20 @@ public void draw()
 	background(171, 209, 222);   
 	stroke(195, 171, 222);
 	strokeWeight(10);   
+	line(200,800,200,700);
+	drawBranches(200, 700, 100, 3*Math.PI/2, 5);
+	//second tree, line doesn't quite work, but it's smaller
+	stroke(200, 100, 222);
 	line(400,800,400,700);
-	drawBranches(400, 700, 100, 3*Math.PI/2, 5);
+	drawBranches(400, 700, 50, 3*Math.PI/2, 5);
 } 
 public void drawBranches(int x,int y, double branchLength, double angle, int strokeWeight) 
 {   
 	strokeWeight(strokeWeight);
-	double angle1 = angle - branchAngle;
+	double angle1 = angle - branchAngle1;
 	double angle2 = angle;
-	double angle3 = angle + branchAngle;
-	branchLength*=fractionLength;
+	double angle3 = angle + branchAngle1;
+	branchLength*=fractionLength1;
 	int endX1 = (int)(branchLength*Math.cos(angle1) + x);
 	int endY1 = (int)(branchLength*Math.sin(angle1) + y);
 	int endX2 = (int)(branchLength*Math.cos(angle2) + x);
@@ -33,9 +40,16 @@ public void drawBranches(int x,int y, double branchLength, double angle, int str
 	if(strokeWeight > 0){
 		strokeWeight--;
 	}
-	if(branchLength > smallestBranch){
+	if(branchLength > smallestBranch1){
 		drawBranches(endX1, endY1, branchLength, angle1, strokeWeight);
 		drawBranches(endX2, endY2, branchLength, angle2, strokeWeight);
 		drawBranches(endX3, endY3, branchLength, angle3, strokeWeight);
 	}
 } 
+class Snow{
+	private int myRad, myColor;
+	public Snow(){
+		myRad = 5;
+		myColor = color(255, 255, 255);
+	}
+}
