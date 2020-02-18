@@ -11,15 +11,22 @@ public void setup()
 } 
 public void draw() 
 {   
-	background(171, 209, 222);   
+	background(171, 209, 222);  
+	//first tree 
 	stroke(195, 171, 222);
 	strokeWeight(10);   
 	line(200,800,200,700);
 	drawBranches(200, 700, 100, 3*Math.PI/2, 5);
-	//second tree, line doesn't quite work, but it's smaller
-	stroke(200, 100, 222);
+	//second tree
+	stroke(237, 197, 78);
+	strokeWeight(10);
 	line(400,800,400,700);
 	drawBranches(400, 700, 50, 3*Math.PI/2, 5);
+	//third tree
+	stroke(240, 141, 105);
+	strokeWeight(10);
+	line(600,800,600,700);
+	drawBranches(600, 700, 125, 3*Math.PI/2, 5);
 } 
 public void drawBranches(int x,int y, double branchLength, double angle, int strokeWeight) 
 {   
